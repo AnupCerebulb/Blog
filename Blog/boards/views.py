@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post,Topic,Board
 
 def home(request):
-    return render(request,'home.html')
+    boards = Board.objects.all()
+
+    return render(request,'home.html',{'boards': boards})
